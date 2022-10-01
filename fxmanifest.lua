@@ -1,12 +1,3 @@
---[[
-    fxmanifest.lua is owned by NewLife©.  
-    Do not take ownership of this file 
-    without permission from the developers.
-
-    Create at 27/09/2022 - 14:57:00
-]]--
----@author Dezel
-
 fx_version 'adamant'
 games { 'gta5' };
 lua54 'yes'

@@ -1,12 +1,3 @@
---[[
-    cfg.lua is owned by NewLife©.  
-    Do not take ownership of this file 
-    without permission from the developers.
-
-    Create at 27/09/2022 - 14:56:56
-]]--
----@author Dezel
-
 Cfg_VehiclesMenu = {
 	Category = {
 		{
