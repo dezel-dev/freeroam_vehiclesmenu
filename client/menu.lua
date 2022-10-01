@@ -62,18 +62,6 @@ function _Vehicles:open_menu()
 
 		RageUI.IsVisible(main, function()
 			_Vehicles.Menu.Drawer[1]()
-			for _, v in pairs(Cfg_VehiclesMenu.Category) do
-				RageUI.Button(v.label, nil, {}, true, {
-					onSelected = function()
-						_Vehicles.selectedCategory.title = v.label
-						_Vehicles.selectedCategory.vehicles = v.Vehicles
-					end
-				}, category)
-			end
-		end)
-
-		RageUI.IsVisible(category, function()
-			_Vehicles.Menu.Drawer[2]()
 		end)
 
 		if not RageUI.Visible(main) and not RageUI.Visible(category) then
@@ -84,22 +72,7 @@ function _Vehicles:open_menu()
 end
 
 _Vehicles.Menu.Drawer[1] = function()
-	RageUI.Button("Spawn avec un modèle", nil, {}, true, {
-		onSelected = function()
-			local vehicleModel <const> = _Vehicles:keyboard("Modèle du véhicule", nil, 50)
-			if (not IsModelValid(vehicleModel)) then
-				return (ESX.ShowNotification("~r~Le modèle renseigné est invalide!"))
-			end
-			_Vehicles:spawn(vehicleModel)
-		end
-	})
-	RageUI.Line()
-end
-
-_Vehicles.Menu.Drawer[2] = function()
-	_Vehicles.Menu.Drawer[1]()
-	RageUI.Separator(("↓ %s ↓"):format(_Vehicles.selectedCategory.title))
-	for _, v in pairs(_Vehicles.selectedCategory.vehicles) do
+	for _, v in pairs(Cfg_VehiclesMenu) do
 		RageUI.Button(v.label, nil, {RightLabel = "~g~[Spawn]"}, true, {
 			onSelected = function()
 				_Vehicles:spawn(v.model)
